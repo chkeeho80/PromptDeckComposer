@@ -1,127 +1,134 @@
 # PromptDeckComposer
 
-PromptDeckComposer is a separate ComfyUI custom node for structured prompt composition. It is not part of PromptDeckMixer and does not reuse PromptDeckMixer code.
+**Generate less. Evolve more.**
 
-## Purpose
+A structured + chaos-based prompt generation system for ComfyUI.
+Stop building prompts manually. Start discovering them.
 
-PromptDeckComposer builds richer natural-language prompts by combining:
+---
 
-- scene structure
-- subject modifiers
-- subject relationships
-- layered style roles
-- artist mixes
-- categorized long style text blocks
+## 🧭 What is this?
 
-The output is a normal ComfyUI `STRING` suitable for Ollama prompt-generation workflows.
+PromptDeckComposer is a creative system designed to:
 
-## Frontend UI
+* generate rich visual prompts automatically
+* combine structure + controlled randomness
+* help you discover better results faster
+* evolve results instead of rebuilding from scratch
 
-PromptDeckComposer includes a lightweight custom frontend UI:
+It is not about perfect prompts.
+It is about **good results**.
 
-- `AUTO COMPOSE ON/OFF` mode button backed by the real `randomize` widget.
-- `CHAOS LEVEL` compact slider backed by the real `CHAOS_LEVEL` widget.
-- Sectioned compact rows for Basic, Scene, Style Layers, Artist Mix, and Style Blocks.
-- `LOCK` / `FREE` buttons backed by the real lock widgets.
-- A read-only Final Prompt Preview.
-- A top-level `USER_PROMPT` text row for fixed anchor text.
+---
 
-The custom UI reads and writes real backend widgets by exact name. Hidden backend widgets remain serialized so workflows keep saving correctly.
+## ⚡ Core Idea
 
-## Install
+> Start with randomness. Keep what works. Evolve only when needed.
 
-Copy this folder into:
+Instead of manually crafting prompts:
 
-```text
-ComfyUI/custom_nodes/PromptDeckComposer
+1. Generate structured random prompts
+2. Get interesting visual results
+3. Save strong outputs
+4. Explore variations only if needed
+
+---
+
+## 🔁 Workflow
+
+**THEME / INPUT → STRUCTURED + CHAOS ENGINE → RICH OUTPUT**
+
+Optional:
+
+**SAVE → EXPLORE (refine / restyle / reimagine)**
+
+---
+
+## 🎛 Key Features
+
+### 🎲 Structured + Chaos Generation
+
+* Combines scene, style, and artist influence
+* Controlled randomness via CHAOS LEVEL
+* Produces detailed prompts automatically
+
+### 🧠 Built-in LLM (Ollama)
+
+* Integrated directly into the node
+* Toggle ON / OFF anytime
+* No extra node required
+* Expands structured prompts into natural language
+
+> Ollama itself must be installed separately.
+
+### 💾 Result-Based Workflow
+
+* Save images + full settings
+* Reuse strong outputs
+* Build from results, not randomness
+
+### 🔍 Optional Exploration
+
+* **Refine** → subtle variation
+* **Restyle** → same idea, new style
+* **Reimagine** → same theme, new scene
+
+---
+
+## 🎛 Controls Explained
+
+### CHAOS LEVEL
+
+Controls variation, not complexity.
+
+* Low → more consistent
+* High → more unexpected
+
+Affects only random generation.
+
+---
+
+### USER PROMPT
+
+* Applied directly to the final output
+* Not affected by randomness
+* Acts as a fixed creative anchor
+
+---
+
+## 🧩 Installation
+
+```bash
+git clone https://github.com/chkeeho80/PromptDeckComposer
 ```
 
-Restart ComfyUI. The node appears under:
+Place inside:
 
 ```text
-prompt/PromptDeckComposer -> PromptDeckComposer
+ComfyUI/custom_nodes/
 ```
 
-## Inputs
+Restart ComfyUI.
 
-Scene structure:
-
-- `PRIMARY_SUBJECT`
-- `SUBJECT_MODIFIER`
-- `SECONDARY_SUBJECT_1`
-- `SECONDARY_SUBJECT_2`
-- `RELATIONSHIP`
-- `ENVIRONMENT`
-- `LOCK_SCENE_STRUCTURE`
-- `LOCK_SUBJECT_MODIFIER`
-
-Style layers:
-
-- `STYLE_LIGHTING`
-- `STYLE_COLOR`
-- `STYLE_TEXTURE`
-- `STYLE_MOOD`
-- `STYLE_RENDER`
-- `LOCK_STYLE_LAYERS`
-
-Artist mix:
-
-- `ARTIST_COUNT`
-- `ARTIST_1`
-- `ARTIST_2`
-- `ARTIST_3`
-- `LOCK_ARTIST_MIX`
-
-Style blocks:
-
-- `STYLE_BLOCK_LIGHTING`
-- `STYLE_BLOCK_TEXTURE`
-- `STYLE_BLOCK_ATMOSPHERE`
-- `STYLE_BLOCK_CAMERA`
-- `STYLE_BLOCK_CONCEPT`
-- `LOCK_STYLE_BLOCKS`
-
-Random controls:
-
-- `randomize`
-- `seed`
-- `separator`
-- `CHAOS_LEVEL`
-- `USER_PROMPT`
-
-## Behavior
-
-When `randomize` is enabled, unlocked systems are randomized during execution.
-
-Limits:
-
-- secondary subjects: 0 to 2
-- artists: 1 to 3
-- randomized categorized style blocks: 0 to 2
-
-Locked systems keep their manual values.
-
-`USER_PROMPT` is prepended to the generated Composer prompt when present. It is not randomized and is not affected by locks.
-
-`CHAOS_LEVEL` controls randomization intensity:
-
-- `0.00` to `0.24`: calm, minimal, stable
-- `0.25` to `0.64`: balanced
-- `0.65` to `1.00`: wild, richer, more expressive
-
-It affects future randomization only. Manual dropdown values are still used as-is when `randomize` is off.
-
-`SUBJECT_MODIFIER` modifies only the primary subject. It is for material, aura, transformation, construction, or symbolic state, such as `made of herbs`, `formed from smoke and wet ink`, or `partially fused with biomechanical parts`.
-
-Categorized style block randomization picks up to two active block categories from lighting, texture, atmosphere, camera, and concept. Non-active block categories are set to `<none>` during randomization.
-
-Prompt example:
+Node location:
 
 ```text
-young woman made of herbs standing with mechanical raven in rainy neon alley, under neon rim lighting, in teal and amber, with soft film grain, dreamlike and quiet, cinematic concept art, inspired by Caravaggio and Gustav Klimt. Organic warmth fights against synthetic light, emphasizing the boundary between human, machine, and myth. A red halation blooms around the brightest light sources, giving the image a vintage optical glow.
+prompt/PromptDeckComposer → PromptDeckComposer
 ```
 
-## Editing Pools
+---
+
+## 🧪 Example Output
+
+A typical generated prompt may look like:
+
+```text
+young woman made of herbs standing with mechanical raven in rainy neon alley, under neon rim lighting, in teal and amber, with soft film grain, dreamlike and quiet, cinematic concept art, inspired by Caravaggio and Gustav Klimt...
+```
+
+---
+
+## 🎨 Customization
 
 Edit:
 
@@ -129,4 +136,35 @@ Edit:
 composer_deck.json
 ```
 
-Keep the top-level pool names unchanged.
+You can modify:
+
+* themes
+* style pools
+* artist sets
+* structure elements
+
+⚠ Keep top-level pool names unchanged.
+
+---
+
+## 💡 Philosophy
+
+PromptDeckComposer is built for:
+
+* creators who are tired of manual prompt crafting
+* users who want fast, rich results
+* exploration through controlled randomness
+
+---
+
+## 🧠 Summary
+
+* Random generation is the starting point
+* Structure shapes the result
+* Good outputs become the foundation
+* Evolution is optional
+
+---
+
+**Randomness starts the spark.
+You decide what becomes something more.**
