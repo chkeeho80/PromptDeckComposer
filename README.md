@@ -1,7 +1,7 @@
 # PromptDeckComposer
 
 **Generate less. Evolve more.**
-
+![Preview](./preview.png)
 A structured + chaos-based prompt generation system for ComfyUI.
 Stop building prompts manually. Start discovering them.
 
