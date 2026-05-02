@@ -1,7 +1,6 @@
 # PromptDeckComposer
 
 **Generate less. Evolve more.**
-![Preview](./preview.png)
 Stop building prompts. Start discovering them.
 
 ![Preview](./preview.png)
