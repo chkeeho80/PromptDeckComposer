@@ -2,8 +2,23 @@
 
 **Generate less. Evolve more.**
 ![Preview](./preview.png)
+Stop building prompts. Start discovering them.
+
+![Preview](./preview.png)
+
 A structured + chaos-based prompt generation system for ComfyUI.
-Stop building prompts manually. Start discovering them.
+
+---
+
+## 🚨 Why not just write prompts manually?
+
+Because:
+
+* manual prompting is slow
+* good results are hard to repeat
+* exploration is limited by your own ideas
+
+PromptDeckComposer turns prompting into a **search process**, not a writing task.
 
 ---
 
@@ -18,6 +33,15 @@ PromptDeckComposer is a creative system designed to:
 
 It is not about perfect prompts.
 It is about **good results**.
+
+---
+
+## 👤 Who is this for?
+
+* ComfyUI users tired of manual prompt crafting
+* creators who want unexpected results
+* users who prefer exploration over precision
+* anyone who wants to “find” ideas instead of forcing them
 
 ---
 
@@ -44,6 +68,31 @@ Optional:
 
 ---
 
+## 🧪 What actually happens?
+
+**Input:**
+
+```
+forest ritual
+```
+
+**Generated (structured):**
+
+```
+ritual priestess made of herbs surrounded by floating fragments in an abandoned temple, soft volumetric lighting, muted earth tones, cinematic concept art...
+```
+
+**Expanded (Ollama):**
+
+```
+[a dense natural-language visual description with subject, environment, lighting, camera, atmosphere]
+```
+
+You don’t build prompts.
+You **discover them**.
+
+---
+
 ## 🎛 Key Features
 
 ### 🎲 Structured + Chaos Generation
@@ -52,6 +101,8 @@ Optional:
 * Controlled randomness via CHAOS LEVEL
 * Produces detailed prompts automatically
 
+---
+
 ### 🧠 Built-in LLM (Ollama)
 
 * Integrated directly into the node
@@ -59,13 +110,17 @@ Optional:
 * No extra node required
 * Expands structured prompts into natural language
 
-> Ollama itself must be installed separately.
+> Ollama must be installed separately.
+
+---
 
 ### 💾 Result-Based Workflow
 
 * Save images + full settings
 * Reuse strong outputs
 * Build from results, not randomness
+
+---
 
 ### 🔍 Optional Exploration
 
@@ -104,7 +159,7 @@ git clone https://github.com/chkeeho80/PromptDeckComposer
 
 Place inside:
 
-```text
+```
 ComfyUI/custom_nodes/
 ```
 
@@ -112,18 +167,8 @@ Restart ComfyUI.
 
 Node location:
 
-```text
-prompt/PromptDeckComposer → PromptDeckComposer
 ```
-
----
-
-## 🧪 Example Output
-
-A typical generated prompt may look like:
-
-```text
-young woman made of herbs standing with mechanical raven in rainy neon alley, under neon rim lighting, in teal and amber, with soft film grain, dreamlike and quiet, cinematic concept art, inspired by Caravaggio and Gustav Klimt...
+prompt/PromptDeckComposer → PromptDeckComposer
 ```
 
 ---
@@ -132,7 +177,7 @@ young woman made of herbs standing with mechanical raven in rainy neon alley, un
 
 Edit:
 
-```text
+```
 composer_deck.json
 ```
 
